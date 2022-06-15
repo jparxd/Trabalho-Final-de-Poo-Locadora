@@ -1,11 +1,11 @@
 class Cliente:
 
-    def __init__(self, cpf: int):
+    def __init__(self, cpf: str):
         self._cpf = cpf
         self._nome = str()
         self._endereco = str()
 
-    def setCpf(self, cpf: int):
+    def setCpf(self, cpf: str):
         self._cpf = cpf
 
     def getCpf(self):
