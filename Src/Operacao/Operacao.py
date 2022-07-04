@@ -8,6 +8,9 @@ class Operacao:
         self._data = date.today()
         self._ativo = bool()
 
+    def __repr__(self):
+        return f'Operacao: {self._cpf},{self._codigo},{self._ativo}'
+
     def setData(self, data: date):
         self._data = data
 

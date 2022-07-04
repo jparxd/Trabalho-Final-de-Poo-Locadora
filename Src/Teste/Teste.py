@@ -7,6 +7,7 @@ from Src.Operacao.Operacao import Operacao
 
 # from Src.Operacao.Reserva import Reserva
 # from Src.RepositorioCliente.RepCliente import RepositorioCliente
+from Src.RepositorioOperacao.RepOpera import RepositorioOperacao
 
 cliente = Cliente('1234567')
 cliente.setNome('Wendel')
@@ -29,3 +30,11 @@ filme.addGenero('Romance')
 filme.setDiretor('Keanu Reeves')
 filme.addAtor('Johnny Depp')
 filme.setSinopse('Um filme que encanta todos que assistem , sem classificacao indicativa')
+
+op = Operacao('124578963', 1)
+op1 = Operacao('11122244478',10)
+hist = RepositorioOperacao()
+hist.cadastrar(op)
+hist.cadastrar(op1)
+print(hist)
+hist.buscarReservas('124578963')

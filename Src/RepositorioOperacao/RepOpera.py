@@ -1,16 +1,24 @@
 from Src.Operacao.Operacao import Operacao
+from Src.Operacao.Reserva import Reserva
 
 
 class RepositorioOperacao:
 
     def __init__(self):
-        self.operacao = []
+        self.operacoes = []
+
+    def __repr__(self):
+        return f'OPERACOES: {self.operacoes}'
 
     def cadastrar(self, operacao: Operacao):
-        pass
+        if operacao not in self.operacoes:
+            self.operacoes.append(operacao)
+            operacao.setAtivo(True)
+        else:
+            print('Operacao ja cadastrada!!')
 
     def buscarReservas(self, cpf: str):
-        pass
+       pass
 
     def buscarLocacoes(self, cpf: str):
         pass
