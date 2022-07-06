@@ -56,13 +56,29 @@ class RepositorioOperacao:
         return len(num)
 
     def numeroLocacoes(self, codigo: int):
-        pass
+        locacoes = []
+        for operacao in self.operacoes:
+            if operacao.getCodigo() == codigo and isinstance(operacao, Locacao):
+                locacoes.append(operacao)
+        return len(locacoes)
 
     def numeroLocacoesAtivas(self, cpf: str):
-        pass
+        locacoes = []
+        for operacao in self.operacoes:
+            if operacao.getCpf() == cpf and operacao.isAtivo() is True and isinstance(operacao, Locacao):
+                locacoes.append(operacao)
+        return len(locacoes)
 
     def numeroLocacoesAtivas(self, codigo: int):
-        pass
+        locacoes = []
+        for operacao in self.operacoes:
+            if operacao.getCodigo() == codigo and operacao.isAtivo() is True and isinstance(operacao, Locacao):
+                locacoes.append(operacao)
+        return len(locacoes)
 
     def numeroReservas(self, codigo: int):
-        pass
+        reservas = []
+        for operacao in self.operacoes:
+            if operacao.getCodigo() == codigo and operacao.isAtivo() is True and isinstance(operacao, Reserva):
+                reservas.append(operacao)
+        return len(reservas)

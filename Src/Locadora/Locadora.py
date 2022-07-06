@@ -1,5 +1,6 @@
 from Src.Cliente.Cliente import Cliente
 from Src.Filme.Filme import Filme
+from Src.Operacao.Reserva import Reserva
 from Src.RepositorioCliente.RepCliente import RepositorioCliente
 from Src.RepositorioFilme.RepFilme import RepositorioFilme
 from Src.RepositorioOperacao.RepOpera import RepositorioOperacao
@@ -13,28 +14,28 @@ class Locadora:
         self._operacoes = operacoes
 
     def cadastrarCliente(self, cliente: Cliente):
-        pass
+        self._clientes.cadastrar(cliente)
 
     def buscarCliente(self, cpf: str):
-        pass
+        self._clientes.buscar(cpf)
 
     def atualizarCadastroCliente(self, cliente: Cliente):
-        pass
+        self._clientes.atualizar(cliente)
 
     def removerCliente(self, cpf: str):
-        pass
+        self._clientes.deletar(cpf)
 
     def cadastrarFilme(self, filme: Filme):
-        pass
+        self._filmes.cadastrar(filme)
 
     def buscarFilme(self, codigo: int):
-        pass
+        self._filmes.buscar(codigo)
 
     def atualizarCadastroFilme(self, filme: Filme):
-        pass
+        self._filmes.atualizar(filme)
 
     def removerFilme(self, codigo: int):
-        pass
+        self._filmes.deletar(codigo)
 
     def reservarFilme(self, cpf: str, codigo: int):
         pass
