@@ -59,7 +59,7 @@ class Locadora:
 
     def imprimirHistoricoLocacoes(self, cpf: str):
         if self.buscarCliente(cpf) is not None:
-            print(self._operacoes.buscarLocacoes(cpf))
+            print(self._operacoes.listarLocacoes(cpf))
 
     def imprimirFilmesMaisLocados(self, top: int):
         pass
