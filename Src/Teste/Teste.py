@@ -3,21 +3,30 @@ from datetime import datetime
 
 from Src.Cliente.Cliente import Cliente
 from Src.Filme.Filme import Filme
+from Src.Locadora.Locadora import Locadora
 from Src.Operacao.Locacao import Locacao
 from Src.Operacao.Operacao import Operacao
 
 # from Src.Operacao.Reserva import Reserva
 # from Src.RepositorioCliente.RepCliente import RepositorioCliente
 from Src.Operacao.Reserva import Reserva
+from Src.RepositorioCliente.RepCliente import RepositorioCliente
+from Src.RepositorioFilme.RepFilme import RepositorioFilme
 from Src.RepositorioOperacao.RepOpera import RepositorioOperacao
 
 cliente = Cliente('1234567')
 cliente.setNome('Wendel')
 cliente.setEndereco('Rua das Flores, 145')
-
 cliente1 = Cliente('3456789')
 cliente1.setNome('Jordan')
 cliente1.setEndereco('Bell air, 15')
+a = RepositorioCliente()
+a.cadastrar(cliente)
+a.cadastrar(cliente1)
+cliente.setNome("Joanderson")
+print(a)
+a.deletar('1234567')
+print(a)
 uso = Operacao('1020304050', 10)
 print(uso.getData())
 data1 = '{:%d/%m/%Y}'.format(datetime(year=2004, month=4, day=14))
@@ -32,7 +41,9 @@ filme.addGenero('Romance')
 filme.setDiretor('Keanu Reeves')
 filme.addAtor('Johnny Depp')
 filme.setSinopse('Um filme que encanta todos que assistem , sem classificacao indicativa')
-
+filme.setNumeroCopias(0)
+b = RepositorioFilme()
+b.cadastrar(filme)
 op = Reserva('124578963', 1)
 op1 = Reserva('11122244478', 10)
 op4 = Locacao('012345678', 2)
@@ -45,3 +56,5 @@ hist.cadastrar(op1)
 print(hist)
 hist.buscarReservas('124578963')
 hist.buscarLocacoes('012345678')
+locadora = Locadora(a, b, hist)
+

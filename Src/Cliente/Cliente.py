@@ -5,6 +5,9 @@ class Cliente:
         self._nome = str()
         self._endereco = str()
 
+    def __repr__(self):
+        return self.imprimir()
+
     def setCpf(self, cpf: str):
         self._cpf = cpf
 

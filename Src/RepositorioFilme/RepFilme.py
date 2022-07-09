@@ -6,6 +6,9 @@ class RepositorioFilme:
     def __init__(self):
         self._filmes = []
 
+    def __repr__(self):
+        return f'FILMES: {self._filmes}'
+
     def cadastrar(self, filme: Filme):
         if self.buscar(filme.getCodigo()) is None:
             self._filmes.append(filme)
@@ -22,13 +25,6 @@ class RepositorioFilme:
     def atualizar(self, filme: Filme):
         filme = self.buscar(filme.getCodigo())
         if filme is not None:
-            filme.setTitulo(filme.getTitulo())
-            filme.setGenero(filme.getGenero())
-            filme.setDatalancamento(filme.getDatalancamento())
-            filme.setDiretor(filme.getDiretor())
-            filme.setAtores(filme.getAtores())
-            filme.setSinopse(filme.getSinopse())
-            filme.setProdutores(filme.getProfutores())
             filme.setPrecoLocacao(filme.getPrecoLocacao())
             filme.setNumeroCopias(filme.getNumeroCopias())
         else:

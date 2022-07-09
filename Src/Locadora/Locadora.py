@@ -1,5 +1,7 @@
 from Src.Cliente.Cliente import Cliente
 from Src.Filme.Filme import Filme
+from Src.Operacao.Locacao import Locacao
+from Src.Operacao.Operacao import Operacao
 from Src.Operacao.Reserva import Reserva
 from Src.RepositorioCliente.RepCliente import RepositorioCliente
 from Src.RepositorioFilme.RepFilme import RepositorioFilme
@@ -17,28 +19,35 @@ class Locadora:
         self._clientes.cadastrar(cliente)
 
     def buscarCliente(self, cpf: str):
-        self._clientes.buscar(cpf)
+        return self._clientes.buscar(cpf)
 
     def atualizarCadastroCliente(self, cliente: Cliente):
         self._clientes.atualizar(cliente)
 
     def removerCliente(self, cpf: str):
-        self._clientes.deletar(cpf)
+        if self._operacoes.numeroLocacoesAtivas(cpf) == 0:
+            self._clientes.deletar(cpf)
 
     def cadastrarFilme(self, filme: Filme):
         self._filmes.cadastrar(filme)
 
     def buscarFilme(self, codigo: int):
-        self._filmes.buscar(codigo)
+        return self._filmes.buscar(codigo)
 
     def atualizarCadastroFilme(self, filme: Filme):
         self._filmes.atualizar(filme)
 
     def removerFilme(self, codigo: int):
-        self._filmes.deletar(codigo)
+        if self._operacoes.numeroLocacoesAtivas(codigo) == 0:
+            self._filmes.deletar(codigo)
 
     def reservarFilme(self, cpf: str, codigo: int):
-        pass
+        filme = self.buscarFilme(codigo)
+        op = Locacao(cpf, codigo)
+        if self.buscarCliente(cpf) in self._clientes is not None and filme in self._filmes is not None:
+            if self._operacoes.numeroLocacoesAtivas(codigo) == filme.getNumeroCopias:
+                self._operacoes.cadastrar(op)
+                print('FIlme: ', filme, 'reservado por: ', self.buscarCliente(cpf))
 
     def finalizarReservaFilme(self, cpf: str, codigo: int):
         pass

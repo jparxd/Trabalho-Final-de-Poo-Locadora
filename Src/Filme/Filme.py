@@ -15,6 +15,9 @@ class Filme:
         self._precoLocacao = float()
         self._numeroCopias = int()
 
+    def __repr__(self):
+        return self.imprimir()
+
     def setCodigo(self, codigo: int):
         self._codigo = codigo
 

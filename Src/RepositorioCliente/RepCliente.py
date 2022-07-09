@@ -6,6 +6,9 @@ class RepositorioCliente:
     def __init__(self):
         self._clientes = []
 
+    def __repr__(self):
+        return f'CLIENTES: {self._clientes}'
+
     def cadastrar(self, cliente: Cliente):
         if self.buscar(cliente.getCpf()) is None:
             self._clientes.append(cliente)
