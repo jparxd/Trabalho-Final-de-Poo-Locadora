@@ -42,12 +42,11 @@ class Locadora:
             self._filmes.deletar(codigo)
 
     def reservarFilme(self, cpf: str, codigo: int):
-        filme = self.buscarFilme(codigo)
-        op = Locacao(cpf, codigo)
-        if self.buscarCliente(cpf) in self._clientes is not None and filme in self._filmes is not None:
-            if self._operacoes.numeroLocacoesAtivas(codigo) == filme.getNumeroCopias:
+        op = Reserva(cpf, codigo)
+        if self.buscarCliente(cpf) is not None:
+            if self.buscarFilme(codigo) is not None:
                 self._operacoes.cadastrar(op)
-                print('FIlme: ', filme, 'reservado por: ', self.buscarCliente(cpf))
+
 
     def finalizarReservaFilme(self, cpf: str, codigo: int):
         pass

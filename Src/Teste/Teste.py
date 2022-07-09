@@ -57,4 +57,4 @@ print(hist)
 hist.buscarReservas('124578963')
 hist.buscarLocacoes('012345678')
 locadora = Locadora(a, b, hist)
-
+locadora.reservarFilme('1234567', 15)
