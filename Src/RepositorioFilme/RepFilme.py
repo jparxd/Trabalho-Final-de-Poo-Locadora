@@ -7,7 +7,8 @@ class RepositorioFilme:
         self._filmes = []
 
     def __repr__(self):
-        return f'FILMES: {self._filmes}'
+        for filme in self._filmes:
+            return f'FILMES: {filme}'
 
     def cadastrar(self, filme: Filme):
         if self.buscar(filme.getCodigo()) is None:
@@ -41,4 +42,5 @@ class RepositorioFilme:
             print('Filme nao encontrado!!!')
 
     def listar(self):
-        return self._filmes
+        for filme in self._filmes:
+            return filme

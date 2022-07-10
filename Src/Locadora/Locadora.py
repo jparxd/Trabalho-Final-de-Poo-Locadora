@@ -43,9 +43,11 @@ class Locadora:
 
     def reservarFilme(self, cpf: str, codigo: int):
         op = Reserva(cpf, codigo)
+        filme = self.buscarFilme(codigo)
         if self.buscarCliente(cpf) is not None:
             if self.buscarFilme(codigo) is not None:
-                self._operacoes.cadastrar(op)
+                if self._operacoes.numeroLocacoesAtivas(codigo) == filme.getNumeroCopias():
+                    self._operacoes.cadastrar(op)
 
 
     def finalizarReservaFilme(self, cpf: str, codigo: int):
