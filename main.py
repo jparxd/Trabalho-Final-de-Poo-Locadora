@@ -102,7 +102,7 @@ if __name__ == '__main__':
                     cliente.cadastrar(user)
 
                 elif option == 2:
-                    cpf = input('Digte o CPF do cliente que deseja visualisar:\n')
+                    cpf = input('Digte o CPF do cliente que deseja visualizar:\n')
                     user = cliente.buscar(cpf)
                     if user is not None:
                         print(user)
